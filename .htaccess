@@ -1,0 +1,9 @@
+#cache css, javascript and text files for one week  
+<FilesMatch ".(js|css|txt)$">  
+Header set Cache-Control "max-age=604800"  
+</FilesMatch> 
+
+#cache flash and images for one month  
+<FilesMatch ".(flv|swf|ico|gif|jpg|jpeg|png|webp)$">  
+Header set Cache-Control "max-age=2592000"  
+</FilesMatch> 
