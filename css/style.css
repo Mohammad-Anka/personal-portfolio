@@ -1385,6 +1385,9 @@ footer h4{
 @media  screen and (max-width:710px) {
     
     /* -------- HOME STYLE -------- */
+    #Home {
+        display: block;
+    }
     .arrow {
         left:10%;
         transform: translate(-10% , -95%);
