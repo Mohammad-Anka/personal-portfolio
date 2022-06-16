@@ -7,7 +7,7 @@
     --icon-color : #626262;
     --white : #fff;
     --bg-color :#fff;
-    --hover-color : #ff9c23;
+    --hover-color : #f58700;
     --bg-active-state : #f1f1f185;
     --box-bg-color :#fff;
     --swiper-theme-color : #FF930F; /*Swiper var override*/
@@ -20,7 +20,17 @@
     --bg-active-state : #38383885;
     --box-bg-color :#222;
 }
-
+::-webkit-scrollbar {
+    width: 12px;               
+  }
+::-webkit-scrollbar-track {
+    border-radius: 15px;
+    margin-block: 2px;
+  }
+::-webkit-scrollbar-thumb {
+    background : linear-gradient(to bottom , var(--primary-color) , var(--secondary-color));    
+    border-radius: 20px;       
+  }
 
 /* ====================== GLOBAL STYLE ===================== */
 * {
@@ -52,16 +62,19 @@ a {
     padding : 50px 0 ;
 }
 .content-container  h3 {
-    font-size:25px;
+    font-size:20px;
     color :var(--font-color);
     padding: 10px 0;
 }
 .content-container h1 {
-    font-size:40px;
-    color :var(--primary-color);
+    font-size: 50px;
+    color: var(--primary-color);
     padding: 0px 0 30px;
+    text-align: center;
 }
-
+.primary-color{
+    color :var(--primary-color);
+}
 
 /* ====================== BG-ANIMATED-SHAPE STYLE ===================== */
 .bg-animated-shape{
@@ -347,7 +360,7 @@ a {
 .btn {
     padding : 13px 20px ;
     font-size: 15px;
-    font-weight : 400;
+    font-weight : 600;
     letter-spacing: 1px;
     transition: all .3s ease-in-out;
 }
@@ -359,10 +372,8 @@ a {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .pr-btn:hover {
-    letter-spacing: 1.5px;
     background: var(--hover-color);
     cursor: pointer;
-    transform: scale(1.05);
 }
 .se-btn {
     background:var(--white) ;
@@ -372,10 +383,9 @@ a {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .se-btn:hover {
-    letter-spacing: 1.5px;
+    border:1px solid var(--icon-color);
+    color: var(--icon-color);
     cursor: pointer;
-    transform: scale(1.05);
-
 }
 .social-btns{
     padding-top: 50px ;
@@ -423,7 +433,7 @@ a {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, .80);
     backdrop-filter: blur(5px);
@@ -441,6 +451,7 @@ a {
     font-size:20px;
     border-radius : 100%;
     transition: all .2s ;
+    margin-block: 2px;
 }
 .menuBody a:hover {
     background-color : var(--primary-color);
@@ -693,7 +704,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
 }
 .service-box .box{
@@ -709,7 +720,6 @@ a {
     width: 100%;
 }
 .service-box .box h3{
-    
     position:absolute;  
     top: 6%;
     left : 15%;
@@ -723,7 +733,7 @@ a {
 .service-box .box ul li {
     display: flex;
     justify-content: center;
-    margin-bottom : 10px;
+    margin-bottom : 20px;
 }
 .service-box .box ul li .fas {
     font-size: 20px;
@@ -731,8 +741,9 @@ a {
     margin-right :10px;
 }
 .service-box .box ul li p {
-    font-size: 15px;
+    font-size: 18px;
     color : #fff;
+    text-align: justify;
 }
 /* ====================== END OF SERVICES STYLE ===================== */
 
@@ -740,7 +751,7 @@ a {
 /* ====================== PORTFOLIO STYLE ===================== */
 .portfolio-container{
     width:90%;
-    padding:25px 0 ;
+    padding:50px 0 ;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -758,20 +769,17 @@ a {
     align-items: center;
     gap: 15px;
 }
-.top-nav ul li{
+.top-nav ul li a{
     padding: 10px 20px;
     color :var(--font-color);
-    font-size: 18px;
+    font-size: 15px;
     font-weight:600;
     cursor: pointer;
-    border-radius: 10px;
     transition: all .2s;
     flex-shrink: 0;
 }
-.top-nav ul li.active{
-    background: var(--bg-active-state);
-}
 .top-nav ul li.active a{
+    border-bottom: 2px solid var(--primary-color);
     color :var(--primary-color) !important;
 }
 .top-nav ul li a {
@@ -784,7 +792,7 @@ a {
 .top-nav ul li a:hover{
     color :var(--primary-color);
 }
-.top-nav ul li a:visited {
+.top-nav ul li a  {
     color :var(--font-color);
 
 }
@@ -802,21 +810,23 @@ a {
 .side-menu .menu-item {
     background-color: var(--box-bg-color);
     position: relative;
-    width:95%;
-    height :130px;
+    width: 95%;
+    padding: 15px;
+    height: 130px;
     border-radius: 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    gap: 1rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     cursor: pointer;
     transition: all .2s;
 }
-.side-menu .menu-item.active {
+.side-menu .menu-item.swiper-slide-thumb-active {
     transform: translateX(15px);
-    border: 4px solid var(--primary-color);
+    border: 3px solid var(--primary-color);
 }
-.side-menu .menu-item.active::before {
+.side-menu .menu-item.swiper-slide-thumb-active::before {
     position: absolute;
     top: 50%;
     left: -25px;
@@ -828,10 +838,11 @@ a {
 }
 .side-menu .menu-item img{
     width: 150px;
-    height: 70%;
+    height: 85px;
+    border-radius: 5px;
 }
 .side-menu .menu-item .menu-details h3{
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 .side-menu .menu-item .menu-details p{
     font-size: 13px;
@@ -844,60 +855,132 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding:20px 40px;
 }
 .preview img {
     width:100%;
-    height:370px;
-    padding: 10px;
+    border-radius :15px;
 }
 .preview h1 {
     text-align: center;
     padding:10px 10px 0 10px ;
 }
 .rate {
-    float: left;
-    height: 45px;
-    padding: 0 10px;
     display: flex;
-    flex-direction: row-reverse;
-    align-items: baseline;
+    gap: 5px;
+    align-items: center;
+    padding: 15px;
 }
-.rate .rateResult {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--font-color);
+.rate span {
+    color : var(--font-color);
+    font-size: 18px
 }
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:25px;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:25px;
-    color:var(--icon-color);
-}
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: var(--secondary-color);    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: var(--secondary-color);  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: var(--hover-color);
+.rate span.checked {
+    color: var(--primary-color);
 }
 /* ====================== END OF PORTFOLIO STYLE ===================== */
+
+/* ====================== START OF PORTFOLIO STYLE  GRAPHIC DESIGN ===================== */
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 85%;
+    border-Radius: 15px;
+    box-Shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    padding: 40px 15px;
+}
+
+.card{
+    position: relative;
+    width:300px;
+    height: 200px;
+    background:#eee;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card img {
+    width:100%;
+    height:100%;
+}
+.card .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient( to bottom,rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+    opacity: 0;
+    transition: all .4s ease-out;
+    backdrop-filter: blur(1px);
+
+}
+.card .overlay span {
+    background: linear-gradient( to bottom,#ff930f , #ffd100);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    cursor: pointer;
+}
+.card .overlay i{
+    font-size:1.5rem;
+    color: #fff;
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.card .overview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: #1111117d;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    z-index: 10000;
+}
+.card .overview img{
+    width: 80%;
+    height: auto;
+    border-radius: 15px;
+    aspect-ratio: 16 / 9;
+}
+.card .overview i{
+    position: absolute;
+    left: 98%;
+    top: 2%;
+    transform: translate(-98%, -2%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+}
+.card .overview i:hover{
+    background: #74777a;
+}
+/* ====================== END OF PORTFOLIO STYLE  GRAPHIC DESIGN ===================== */
 
 
 /* ====================== TESTIMONIALS STYLE ===================== */
@@ -927,7 +1010,7 @@ a {
 .testimonials-container {
     width:100%;
     height: 100%;
-    min-height : 550px;
+    /* min-height : 550px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -943,25 +1026,26 @@ a {
 }
 .testimonials-container .Review-box {
     position: relative;
-    width:650px;
-    height: 340px;
-    padding:20px 40px;
-    border: 5px solid var(--secondary-color);
+    width: 650px;
+    height: 300px;
+    padding: 20px 40px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     background: var(--box-bg-color);
-    filter :blur(.5px);
+    border-Radius: 15px;
+    box-Shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    filter: blur(.5px);
 }
 .testimonials-container .Review-box  img{
     position: absolute;
     top: -50%;
     left: -20%;
     transform: translate(20% ,50%);
-    width:220px;
-    height:220px;
+    width:200px;
+    height:200px;
     border:5px solid var(--primary-color);
     border-radius: 100%;
 }
@@ -1008,35 +1092,37 @@ a {
 
 /* ====================== CONTACT ME STYLE ===================== */
 .contact-me-container {
-    width:100%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 3rem
+    justify-content: center;
+    gap: 3rem;
 }
 .quick-contact {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 2rem;
 }
 .quick-contact .gmail-box ,
 .quick-contact .whatsapp-box{
-    width: 350px;
-    height: 270px;
-    padding :15px 30px;
+    width: 300px;
+    height: 220px;
+    padding: 15px 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     background: linear-gradient(to top right , var(--primary-color) , var(--secondary-color));
     border-radius: 15px;
+    box-shadow: rgb(0 0 0 / 18%) 0px 2px 4px;
 
 }
 .gmail-box .fas,
 .whatsapp-box .fab {
-    font-size: 60px;
+    font-size: 40px;
     color :var(--white);
 }
 .gmail-box h2 ,
@@ -1047,20 +1133,21 @@ a {
 }
 .gmail-box p ,
 .whatsapp-box p{
-    font-size: 18px;
+    font-size: 15px;
     color :var(--white);
 }
 .gmail-box .send-message ,
 .whatsapp-box .send-message{
-    background-color: var(--white);
-    border: 3px solid var(--secondary-color);
-    border-radius: 15px;
-    padding:13px 20px;
-    font-size:18px;
-    color : var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    padding: 13px 20px;
+    font-size: 15px;
+    background: var(--white);
+    color: var(--secondary-color);
     transition: all .2s ease;
     cursor: pointer;
-    color: #111 ;
+    color: var(var(--font-color));
+    margin-top: 10px;
 }
 .gmail-box .send-message:hover ,
 .whatsapp-box .send-message:hover{
@@ -1070,23 +1157,20 @@ a {
 
 }
 .contact-me-container .contact-form {
-    width:730px;
     padding :15px;
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
-    align-items: center;
 }
 .contact-form input ,textarea {
     width:100%;
-    margin:15px 0;
+    margin-bottom:15px ;
     padding:20px 30px;
-    border: 5px solid var(--secondary-color);
+    border: none;
     color:var(--secondary-color);
     background: var(--bg-color);
-    border-radius: 15px;
-    font-size: 18px;
-    font-weight: 700;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     transition : all .3s ease ;
     /* for textarea */
     resize: none;
@@ -1098,7 +1182,6 @@ a {
 .contact-form input:focus ,
 .contact-form textarea:focus {
     outline: none !important;
-    border: 4px solid var(--primary-color);
     color:var(--primary-color);
 }
 .contact-form input:focus::placeholder ,
@@ -1183,7 +1266,7 @@ footer h4{
 
 
 /* ---------- LAPTOP SCREEN  ---------- */
-@media screen and (max-width:1160px) {
+@media screen and (max-width:1180px) {
     /* -------- HOME STYLE -------- */
     .navbar {
         padding:30px 45px 30px 50px;
@@ -1265,9 +1348,6 @@ footer h4{
     .preview {
         width: 55%;
     }
-    .preview img {
-        height: 350px;
-    }
     /* -------- TESTIMONIALS STYLE -------- */
     #Testimonials .parallax img:nth-child(1) ,
     #Testimonials .parallax img:nth-child(2){
@@ -1278,7 +1358,7 @@ footer h4{
 
 /* ---------- TABLET SCREEN ---------- */
 
-@media  screen and (max-width:865px) {
+@media  screen and (max-width:920px) {
      /* -------- HOME STYLE -------- */
     .shape img{
         width:365px;
@@ -1355,7 +1435,12 @@ footer h4{
         width: 100%;
     }
     
+    /* -------- PORTFOLIO STYLE GRAPHIC DESIGN -------- */
+
+
+
     /* -------- TESTIMONIALS STYLE -------- */
+
     #Testimonials .parallax img:nth-child(1), #Testimonials .parallax img:nth-child(2) {
         width: 180px;
         height: 180px;
@@ -1378,6 +1463,13 @@ footer h4{
     .testimonials-container .Review-box .Reviewer-Mesage .text-wrapper {
         margin: 10px;
         font-size: 15px;
+    }
+    /* -------- CONTACT US STYLE-------- */
+    .contact-me-container{
+        flex-direction: column;
+    }
+    .quick-contact {
+        flex-direction: row;
     }
 }
 
@@ -1429,10 +1521,10 @@ footer h4{
     }
 
     /* -------- CONTACT ME STYLE -------- */
-    .contact-me-container .contact-form {
+    /* .contact-me-container .contact-form {
         width: 100%;
         padding:15px 25px;
-    }
+    } */
 }
 
 /* ---------- XL-PHONE SCREEN  ---------- */
@@ -1543,12 +1635,12 @@ footer h4{
     }
     .side-menu {
         width: 95%;
-        padding: 10px 20px 0 0;
+        padding: 10px 20px 10px 0;
     }
     .side-menu .menu-item {
         height: 90px;
     }
-    .side-menu .menu-item.active::before {
+    .side-menu .menu-item.swiper-slide-thumb-active::before {
         font-size: 40px;
     }
     .side-menu .menu-item img {
@@ -1561,11 +1653,12 @@ footer h4{
     .side-menu .menu-item .menu-details p {
         font-size: 11px !important;
     }
-    .preview img {
-        height: 250px;
+    .preview {
+        padding: 5px 10px;
     }
     .preview h1 {
         text-align: center;
+        font-size: 25px;
     }
     .preview .Feedback {
         width: 100%;
@@ -1578,6 +1671,10 @@ footer h4{
     .preview .Feedback .like p,
     .preview .Feedback .comment p {
         font-size: 17px;
+    }
+    /* -------- PORTFOLIO GRAPHIC DESIGN STYLE -------- */
+    .card .overview img{
+        width : 90%
     }
 
     /* -------- TESTIMONIALS STYLE -------- */
@@ -1635,11 +1732,7 @@ footer h4{
         padding: 10px 15px;
         font-size: 16px;
     }
-    .contact-form input, textarea {
-        padding: 10px 20px;
-        border: 3px solid var(--secondary-color);
-        font-size: 14px;
-    }
+    
 
     /* -------- FOOTER STYLE -------- */
     footer {
@@ -1669,5 +1762,9 @@ footer h4{
         font-size: 15px !important;
         top: 2%;
         transform: translate(-15% ,-2%);
+    }
+    /* -------- PORTFOLLIO GRAPHIC DESIGN STYLE -------- */
+    .card .overview img{
+        width : 95%
     }
 }

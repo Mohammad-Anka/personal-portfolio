@@ -1,32 +1,8 @@
-
-/* ====================== puls animation script (change icon) ===================== */
-$(".pulse").click(function(){
-    $('.menu-ico').toggleClass("fa-angle-left fa-times");
-    $('.menuBody').toggleClass("enable");
-});
-
-/* ====================== add active state to side menu ===================== */
-$(".menuBody a").click(function(){
-    $('.menuBody a').removeClass("active");
-    $(this).addClass("active");
-});
-
-/* ====================== add active state to portfolio menu  ===================== */
-$(".menu-item").click(function(){
-    $(".menu-item").removeClass("active");
-    $(this).addClass("active");
-});
-
-/* ====================== add active state to topnav bar for portfoilio section  ===================== */
-$("ul li").click(function(){
-    $("ul li").removeClass("active");
-    $(this).addClass("active");
-});
-
+const toggleSwitch = document.querySelector('.darkMode-toggle input[type="checkbox"]');
+const menuItems = document.querySelectorAll('.menu-item');
+const tabs = document.querySelectorAll('.filter-tab li a');
 
 /* ====================== switching to dark mode script  ===================== */
-
-const toggleSwitch = document.querySelector('.darkMode-toggle input[type="checkbox"]');
 
 function switchTheme(e) {
     if (e.target.checked) {
@@ -51,13 +27,57 @@ if (currentTheme) {
     }
 }
 
+/* ====================== puls animation script (change icon) ===================== */
+$(".pulse").click(function(){
+    $('.menu-ico').toggleClass("fa-angle-left fa-times");
+    $('.menuBody').toggleClass("enable");
+});
+
+/* ====================== add active state to side menu ===================== */
+$(".menuBody a").click(function(){
+    $('.menuBody a').removeClass("active");
+    $(this).addClass("active");
+});
+
+// /* ====================== add active state to portfolio menu  ===================== */
+// $(".menu-item").click(function(){
+//     $(".menu-item").removeClass("active");
+//     $(this).addClass("active");
+// });
+
+/* ====================== add active state to topnav bar for portfoilio section  ===================== */
+$("ul li").click(function(){
+    $("ul li").removeClass("active");
+    $(this).addClass("active");
+});
 /* ====================== testimonials swiper script  ===================== */
 var testimomials_swiper = new Swiper(".testimomials_swiper", {
     pagination: {
     el: ".swiper-pagination",
     },
 });
-
+/* ====================== Filter data in PORTFOLIO nav bar  ===================== */
+tabs.forEach(tab=>{
+    tab.addEventListener('click', (e)=>{
+        menuItems.forEach(item => {
+            console.log()
+            if (item.id === e.currentTarget.id) {
+                item.style.display = "flex";
+            }else if (e.currentTarget.id === "all-tab"){
+                item.style.display = "flex";
+                var index = item.getAttribute("aria-label").split("/");
+                portfolio_side_menu.appendSlide(index[0]);
+            }
+            else {
+                // item.data("aria-label");
+                // console.log(item.data("aria-label"));
+                var index = item.getAttribute("aria-label").split("/");
+                portfolio_side_menu.removeSlide(index[0]);
+                item.style.display = "none";
+            }
+        });
+    })
+})
 /* ====================== portfolio swiper script  ===================== */
 var portfolio_side_menu = new Swiper(".portfolio_side_menu", {
     spaceBetween: 15,
@@ -95,3 +115,16 @@ var preview_swiper = new Swiper(".preview-container", {
     swiper: portfolio_side_menu,
     },
 });
+/* ====================== Graphic Design PORTFOLIO Scripts  ===================== */
+/* open full screen */
+$(".full-screen-btn").click(function(){
+    const el = $(this).parent().parent('.card');
+    el.find(".overview").css("display" , "flex");
+});
+$(".close-overview-btn").click(function(){
+    $(this).parent().css("display","none");
+})
+
+
+
+
