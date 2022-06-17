@@ -412,7 +412,7 @@ a {
 .social-btns li a:visited ,
 .social-btns li a:focus ,
 .social-btns li a:active{
-    color: var(--white);
+    color: var(--white) !important;
     text-decoration:none;
 }
 .menu {
@@ -1488,6 +1488,7 @@ footer h4{
         transform: translate(-10% , -95%);
     }
     .btns{
+        width:100%
         justify-content: center;
     }
     .darkMode-toggle .label {
@@ -1638,7 +1639,7 @@ footer h4{
     }
     .side-menu {
         width: 95%;
-        padding: 10px 20px 10px 0;
+        padding: 10px 20px 10px 5px;
     }
     .side-menu .menu-item {
         height: 90px;
