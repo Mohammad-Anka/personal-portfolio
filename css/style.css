@@ -409,11 +409,9 @@ a {
 .social-btns li:hover {
     transform : scale(1.1);
 }
-.social-btns li a:visited ,
-.social-btns li a:focus ,
-.social-btns li a:active{
-    color: var(--white) !important;
-    text-decoration:none !important;
+.social-btns li a ,
+.social-btns li a:visited {
+    color: var(--white) ;
 }
 .menu {
     width:100px;
