@@ -409,8 +409,8 @@ a {
 .social-btns li:hover {
     transform : scale(1.1);
 }
-.social-btns li a ,
-.social-btns li a:visited {
+.social-btns li > a ,
+.social-btns li > a:visited {
     color: var(--white) ;
 }
 .menu {
